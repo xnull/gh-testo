@@ -4,14 +4,13 @@ on: workflow_dispatch
 
 jobs:
   corfu-client-docker:
+    name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      uses: ./.github/workflows/docker/docker.yml
-        with:
-          image_name: my-awesome-app
-          tag: $GITHUB_RUN_NUMBER
-        #secrets:
-         # registry_username: ${{ secrets.REGISTRY_USERNAME }}
-          #registry_password: ${{ secrets.REGISTRY_PASSWORD }}
+     - uses: ./.github/workflows/docker/docker.yml
+      with:
+        image_name: "my-awesome-app"
+        tag: "yay"
+      #secrets:
+       # registry_username: ${{ secrets.REGISTRY_USERNAME }}
+        #registry_password: ${{ secrets.REGISTRY_PASSWORD }}
