@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: ./.github/workflows/docker/docker.yml@v1
+      uses: ./.github/workflows/docker/docker.yml
         with:
           image_name: my-awesome-app
           tag: $GITHUB_RUN_NUMBER
