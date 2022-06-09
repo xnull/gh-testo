@@ -3,11 +3,14 @@ name: Cloud Corfu Cleint Build
 on: workflow_dispatch
 
 jobs:
-  corfu-client-docker:
-    uses: ./.github/workflows/docker/docker.yml
-    with:
-      image_name: "my-awesome-app"
-      tag: "yay"
-      #secrets:
-       # registry_username: ${{ secrets.REGISTRY_USERNAME }}
-        #registry_password: ${{ secrets.REGISTRY_PASSWORD }}
+  test_job:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+  
+      - name: test test test
+        env:
+          SOME_SECRET: ${{ secrets.SOME_SECRET }}
+        run: |
+          make test_test
